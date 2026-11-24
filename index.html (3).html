@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OceanDream.vn – Đèn ngủ đại dương</title>
+<style>
+:root{--bg:#050d1f;--bg2:#0a1a3a;--teal:#4fd1c5;--blue:#5b8cff;--violet:#8b7bff;--txt:#e8f1ff;--mut:#9fb3d1;--glass:rgba(255,255,255,.07);--bd:rgba(255,255,255,.16)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:radial-gradient(1000px 600px at 15% -10%,#14357a55,transparent),radial-gradient(800px 600px at 100% 30%,#4fd1c522,transparent),var(--bg);color:var(--txt);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:auto;padding:0 20px}
+section{padding:80px 0}
+h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1}
+h2{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:8px;text-align:center}
+.sub{color:var(--mut);text-align:center;margin-bottom:36px}
+.grad{background:linear-gradient(90deg,var(--teal),var(--blue),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* glass + sweep */
+.glass{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--bd);border-radius:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:24px}
+.glass::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);animation:sweep 5s ease-in-out infinite}
+@keyframes sweep{0%{left:-80%}45%,100%{left:140%}}
+.btn{display:inline-block;position:relative;overflow:hidden;border:0;cursor:pointer;padding:12px 26px;border-radius:99px;font:600 1rem inherit;color:#04122b;background:linear-gradient(90deg,var(--teal),var(--blue));box-shadow:0 8px 30px #4fd1c540;transition:.25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px #5b8cff70}
+.btn.ghost{background:var(--glass);color:var(--txt);border:1px solid var(--bd);box-shadow:none}
+.btn.sm{padding:8px 16px;font-size:.9rem}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:40%;height:100%;background:linear-gradient(100deg,transparent,#fff9,transparent);transform:skewX(-20deg);animation:sweep 4s infinite}
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:#050d1fb0;border-bottom:1px solid var(--bd)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.logo{font-weight:800;font-size:1.25rem}
+nav ul{display:flex;gap:20px;list-style:none;font-size:.95rem;color:var(--mut)}
+nav ul a:hover{color:var(--teal)}
+@media(max-width:820px){nav ul{display:none}}
+.hero{padding:90px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}}
+.hero p{color:var(--mut);margin:18px 0 28px;font-size:1.1rem}
+.badges{display:flex;gap:18px;margin-top:26px;color:var(--mut);font-size:.9rem;flex-wrap:wrap}
+.lamp{position:relative;height:380px;display:grid;place-items:center}
+.orb{width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#7fe9ff 25%,#4f7cff 60%,#2a2f8f);box-shadow:0 0 80px 20px #4fd1c566,0 0 200px 60px #5b8cff44;animation:float 6s ease-in-out infinite}
+.base{position:absolute;bottom:28px;width:170px;height:34px;border-radius:30px;background:linear-gradient(#25365f,#0c1633)}
+.bubble{position:absolute;border-radius:50%;border:1px solid #fff5;background:#ffffff14;animation:rise 9s linear infinite}
+@keyframes float{50%{transform:translateY(-18px)}}
+@keyframes rise{from{transform:translateY(60px);opacity:0}20%{opacity:1}to{transform:translateY(-360px);opacity:0}}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.ic{font-size:2rem;margin-bottom:8px}
+.glass h3{margin-bottom:6px}.glass p{color:var(--mut);font-size:.95rem}
+.stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:40px;text-align:center}
+.stats b{font-size:2rem;display:block}
+/* products */
+.pimg{height:170px;border-radius:14px;margin-bottom:14px;background-size:cover;background-position:center;display:grid;place-items:center;font-size:3rem}
+.price{font-size:1.3rem;font-weight:700;color:var(--teal)}
+.stock{font-size:.85rem;color:var(--mut)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}
+input,select,textarea{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--bd);background:#0a1a3a99;color:var(--txt);font:inherit;margin-bottom:10px}
+input::placeholder,textarea::placeholder{color:#7f93b3}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.stars{color:#ffd166;letter-spacing:2px}
+.rv{margin-bottom:12px;padding:14px;border-radius:14px;background:#ffffff0d}
+details{margin-bottom:12px;cursor:pointer}summary{font-weight:600}details p{margin-top:8px;color:var(--mut)}
+.cta{text-align:center}
+footer{padding:30px 0;text-align:center;color:var(--mut);border-top:1px solid var(--bd);font-size:.9rem}
+/* cart */
+#cartBtn{position:relative}
+#cartCount{background:#ff6b8b;color:#fff;border-radius:99px;padding:0 7px;font-size:.75rem;margin-left:4px}
+.drawer{position:fixed;top:0;right:-420px;width:min(400px,100%);height:100%;z-index:100;background:#0a1a3af2;backdrop-filter:blur(20px);border-left:1px solid var(--bd);padding:22px;overflow:auto;transition:.35s}
+.drawer.open{right:0}
+.ci{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--bd);font-size:.92rem;gap:8px}
+.qty button{width:26px;height:26px;border-radius:8px;border:1px solid var(--bd);background:var(--glass);color:var(--txt);cursor:pointer}
+/* admin */
+#admin{display:none}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{padding:8px;border-bottom:1px solid var(--bd);text-align:left}
+td input,td select{margin:0;padding:6px 8px;min-width:70px}
+.tw{overflow-x:auto}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+.kpi .glass{padding:16px}.kpi b{font-size:1.3rem;display:block;color:var(--teal)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:#112a5c;border:1px solid var(--teal);padding:12px 22px;border-radius:99px;z-index:200;transition:.4s}
+.toast.show{transform:translateX(-50%)}
+.pay{display:grid;gap:8px;margin:6px 0 10px}.pay label{display:flex;gap:10px;align-items:center;padding:10px 14px;border:1px solid var(--bd);border-radius:12px;cursor:pointer;background:var(--glass)}.pay label.on{border-color:var(--teal);background:#4fd1c514}.pay input{width:auto;margin:0}
+.qrbox{text-align:center;padding:14px;border:1px dashed var(--bd);border-radius:14px;margin-bottom:10px;font-size:.9rem;color:var(--mut)}.qrbox img{width:100%;max-width:240px;border-radius:12px;background:#fff;padding:8px;display:block;margin:0 auto 8px}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.thumbs img{width:72px;height:72px;object-fit:cover;border-radius:10px;border:1px solid var(--bd);cursor:zoom-in}
+.lb{position:fixed;inset:0;background:#000d;z-index:300;display:none;place-items:center;cursor:zoom-out}.lb.open{display:grid}.lb img{max-width:92%;max-height:92%;border-radius:12px}
+.modal{position:fixed;inset:0;z-index:150;background:#030a18cc;backdrop-filter:blur(6px);display:none;place-items:center;padding:16px}.modal.open{display:grid}
+.mbox{width:min(440px,100%);max-height:90vh;overflow-y:auto}.mbox h4{margin:16px 0 8px}
+#userBtn{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){.hm{display:none}}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="#top" class="logo">🌊 <span class="grad">OceanDream.vn</span></a>
+  <ul><li><a href="#loiich">Lợi ích</a></li><li><a href="#tinhnang">Tính năng</a></li><li><a href="#sanpham">Sản phẩm</a></li><li><a href="#danhgia">Đánh giá</a></li><li><a href="#tracuu">Tra cứu đơn</a></li><li><a href="#trahang">Trả hàng</a></li><li><a href="#faq">FAQ</a></li></ul>
+  <div><button class="btn ghost sm" id="adminBtn">⚙ Quản trị</button> <button class="btn ghost sm" id="userBtn" onclick="openAuth()">👤 <span class="hm">Đăng nhập</span></button> <button class="btn sm" id="cartBtn">🛒 Giỏ<span id="cartCount">0</span></button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <h1>Ngủ ngon cùng <span class="grad">ánh sáng đại dương</span></h1>
+    <p>Đèn ngủ OceanDream.vn mang sóng biển dịu nhẹ vào phòng bạn – ánh sáng ấm, êm mắt, giúp cả nhà thư giãn và ngủ sâu hơn mỗi đêm.</p>
+    <a href="#sanpham" class="btn">Mua ngay</a> <a href="#lienhe" class="btn ghost">Nhận ưu đãi 10%</a>
+    <div class="badges"><span>✔ Bảo hành 12 tháng</span><span>✔ Miễn phí đổi trả 7 ngày</span><span>✔ Giao hàng toàn quốc</span></div>
+  </div>
+  <div class="lamp"><div class="orb"></div><div class="base"></div>
+    <i class="bubble" style="width:14px;height:14px;left:18%;bottom:60px"></i><i class="bubble" style="width:22px;height:22px;left:75%;bottom:40px;animation-delay:3s"></i><i class="bubble" style="width:10px;height:10px;left:55%;bottom:70px;animation-delay:6s"></i>
+  </div>
+</div></header>
+
+<section id="loiich"><div class="wrap reveal">
+  <h2>Vì sao chọn <span class="grad">OceanDream.vn</span>?</h2><p class="sub">Dành cho mọi người – từ em bé đến người lớn tuổi</p>
+  <div class="grid">
+    <div class="glass"><div class="ic">😴</div><h3>Ngủ sâu hơn</h3><p>Ánh sáng ấm, không chói giúp thư giãn và dễ chìm vào giấc ngủ.</p></div>
+    <div class="glass"><div class="ic">👁️</div><h3>Dịu mắt</h3><p>Công nghệ LED chống chói, không nhấp nháy, an toàn cho trẻ nhỏ.</p></div>
+    <div class="glass"><div class="ic">🏡</div><h3>Đẹp mọi không gian</h3><p>Thiết kế tối giản, hợp phòng ngủ, phòng khách, bàn làm việc.</p></div>
+    <div class="glass"><div class="ic">💸</div><h3>Giá hợp lý</h3><p>Chất lượng cao với mức giá dễ tiếp cận cho mọi gia đình.</p></div>
+  </div>
+  <div class="stats"><div><b class="grad">12.000+</b>khách hàng</div><div><b class="grad">4.9/5</b>đánh giá</div><div><b class="grad">12 tháng</b>bảo hành</div></div>
+</div></section>
+
+<section id="tinhnang"><div class="wrap reveal">
+  <h2>Tính năng nổi bật</h2><p class="sub">Nhỏ gọn nhưng đầy đủ mọi thứ bạn cần</p>
+  <div class="grid">
+    <div class="glass"><div class="ic">🎨</div><h3>16 màu & 5 chế độ</h3><p>Chọn màu, độ sáng và hiệu ứng sóng bằng cảm ứng hoặc điều khiển từ xa.</p></div>
+    <div class="glass"><div class="ic">⏱️</div><h3>Hẹn giờ tắt</h3><p>Tự tắt sau 30/60/120 phút, tiết kiệm điện.</p></div>
+    <div class="glass"><div class="ic">🔋</div><h3>Pin 12 giờ</h3><p>Sạc USB-C, dùng liên tục cả đêm, mang đi dễ dàng.</p></div>
+    <div class="glass"><div class="ic">🎵</div><h3>Âm thanh sóng biển</h3><p>Tích hợp loa nhỏ phát tiếng sóng, mưa, gió êm dịu.</p></div>
+  </div>
+</div></section>
+
+<section id="sanpham"><div class="wrap reveal">
+  <h2>Sản phẩm <span class="grad">đặt hàng ngay</span></h2><p class="sub">Thêm vào giỏ và đặt hàng trực tiếp trên trang</p>
+  <div class="grid" id="products"></div>
+</div></section>
+
+<section id="danhgia"><div class="wrap reveal">
+  <h2>Khách hàng nói gì?</h2><p class="sub">Đánh giá thật từ người đã mua</p>
+  <div class="two">
+    <div class="glass" id="reviews"></div>
+    <div class="glass"><h3 style="margin-bottom:12px">Viết đánh giá của bạn</h3>
+      <input id="rvName" placeholder="Tên của bạn">
+      <select id="rvStar"><option value="5">★★★★★ Tuyệt vời</option><option value="4">★★★★ Tốt</option><option value="3">★★★ Bình thường</option><option value="2">★★ Chưa tốt</option><option value="1">★ Tệ</option></select>
+      <textarea id="rvText" rows="4" placeholder="Chia sẻ cảm nhận về sản phẩm..."></textarea>
+      <label class="stock" style="display:block;margin-bottom:6px">📷 Ảnh sản phẩm thực tế (tối đa 3 ảnh)</label>
+      <input type="file" id="rvFile" accept="image/*" multiple onchange="prevRv(this)"><div class="thumbs" id="rvPrev"></div>
+      <button class="btn" onclick="addReview()">Gửi đánh giá</button></div>
+  </div>
+</div></section>
+
+<section id="tracuu"><div class="wrap reveal">
+  <h2>Tra cứu đơn hàng</h2><p class="sub">Nhập mã đơn, mã đơn trên sàn hoặc số điện thoại đã đặt</p>
+  <div class="glass" style="max-width:640px;margin:auto">
+    <input id="lookQ" placeholder="VD: OD-123456, mã đơn sàn hoặc 09xxxxxxxx">
+    <button class="btn" onclick="lookup()">Tra cứu</button><div id="lookRes" style="margin-top:16px"></div>
+  </div>
+</div></section>
+
+<section id="trahang"><div class="wrap reveal">
+  <h2>Yêu cầu <span class="grad">trả hàng</span></h2><p class="sub">Đổi trả trong 7 ngày nếu lỗi nhà sản xuất</p>
+  <div class="glass" style="max-width:640px;margin:auto">
+    <input id="rtCode" placeholder="Mã đơn hàng (VD: OD-123456)"><input id="rtPhone" placeholder="Số điện thoại đã đặt hàng">
+    <select id="rtReason"><option value="">-- Chọn lý do trả hàng --</option><option>Sản phẩm bị lỗi / không hoạt động</option><option>Hư hỏng do vận chuyển</option><option>Giao sai sản phẩm / thiếu phụ kiện</option><option>Không đúng mô tả</option><option>Không còn nhu cầu</option><option>Khác</option></select>
+    <textarea id="rtNote" rows="3" placeholder="Mô tả chi tiết (bắt buộc nếu chọn “Khác”)"></textarea>
+    <button class="btn" onclick="requestReturn()">Gửi yêu cầu trả hàng</button>
+    <p class="stock" style="margin-top:12px">Theo dõi tình trạng yêu cầu tại mục “Tra cứu đơn hàng”.</p>
+  </div>
+</div></section>
+
+<section id="lienhe" class="cta"><div class="wrap reveal">
+  <div class="glass" style="max-width:720px;margin:auto;padding:44px 28px">
+    <h2>Nhận <span class="grad">giảm 10%</span> cho đơn đầu tiên</h2><p class="sub">Để lại thông tin, chúng tôi gửi mã ưu đãi và tư vấn miễn phí.</p>
+    <input id="ldName" placeholder="Họ và tên"><input id="ldContact" placeholder="Số điện thoại hoặc email">
+    <button class="btn" onclick="addLead()">Nhận ưu đãi ngay</button>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap reveal" style="max-width:760px">
+  <h2>Câu hỏi thường gặp</h2><p class="sub">&nbsp;</p>
+  <div class="glass">
+    <details><summary>Đèn có an toàn cho trẻ em không?</summary><p>Có. Chất liệu không độc hại, LED không nhấp nháy, nhiệt độ thấp.</p></details>
+    <details><summary>Giao hàng mất bao lâu?</summary><p>2–4 ngày làm việc toàn quốc, nội thành có thể nhận trong ngày.</p></details>
+    <details><summary>Chính sách đổi trả?</summary><p>Đổi trả trong 7 ngày nếu lỗi nhà sản xuất, bảo hành 12 tháng. Gửi yêu cầu tại mục “Trả hàng” kèm lý do.</p></details>
+    <details><summary>Thanh toán thế nào?</summary><p>Tiền mặt khi nhận hàng (COD) hoặc chuyển khoản bằng cách quét mã QR khi đặt hàng.</p></details>
+    <details><summary>Làm sao biết đơn hàng của tôi?</summary><p>Dùng mục “Tra cứu đơn hàng” với mã đơn hoặc số điện thoại.</p></details>
+  </div>
+</div></section>
+
+<section id="admin"><div class="wrap">
+  <h2>Quản trị <span class="grad">OceanDream.vn</span></h2><p class="sub">Doanh thu, lợi nhuận, giá, tồn kho, đơn hàng & lead</p>
+  <div class="kpi" id="kpi"></div>
+  <div class="glass" style="margin-bottom:20px"><h3 style="margin-bottom:12px">🧾 Nhập đơn hàng đã bán</h3>
+    <div class="two"><div>
+      <input id="soCode" placeholder="Mã đơn hàng (để trống = tự tạo, VD: OD-123456)"><select id="soPlat"></select><input id="soPlatCode" placeholder="Mã đơn trên sàn (VD: 241124ABCXYZ)"><select id="soPay"></select><input id="soName" placeholder="Tên khách (không bắt buộc)"><input id="soPhone" placeholder="SĐT khách (để khách tra cứu đơn)"><input id="soDate" type="date">
+    </div><div>
+      <select id="soProd" onchange="soFill()"></select><input id="soQty" type="number" min="1" value="1" placeholder="Số lượng"><input id="soPrice" type="number" min="0" placeholder="Giá bán thực tế / 1 sản phẩm (đ)">
+      <label style="font-size:.9rem;color:var(--mut)"><input type="checkbox" id="soStock" checked style="width:auto;margin-right:6px">Trừ số lượng khỏi tồn kho</label>
+    </div></div><br><button class="btn" onclick="addSold()">Lưu đơn đã bán</button></div>
+  <div class="glass" style="margin-bottom:20px"><h3 style="margin-bottom:12px">➕ Thêm sản phẩm mới</h3>
+    <div class="two"><div>
+      <input id="npName" placeholder="Tên sản phẩm *"><input id="npDesc" placeholder="Mô tả ngắn">
+      <input id="npPrice" type="number" min="0" placeholder="Giá bán (đ) *"><input id="npCost" type="number" min="0" placeholder="Giá nhập (đ)"><input id="npStock" type="number" min="0" placeholder="Số lượng tồn kho *">
+    </div><div>
+      <input type="file" id="npFile" accept="image/*" onchange="prevNew(this)"><input id="npUrl" placeholder="hoặc dán link ảnh (https://...)" onchange="npImg=this.value.trim();setPrev(npImg)">
+      <div class="pimg" id="npPrev" style="height:130px;font-size:1rem;color:var(--mut)">🖼️ Xem trước ảnh</div>
+      <button class="btn" onclick="addProd()">Thêm sản phẩm</button>
+    </div></div></div>
+  <div class="glass" style="margin-bottom:20px"><h3>Danh sách sản phẩm (sửa trực tiếp trong bảng)</h3><div class="tw"><table id="aProd"></table></div></div>
+  <div class="glass" style="margin-bottom:20px"><h3>Đơn hàng</h3><div class="tw"><table id="aOrd"></table></div></div>
+  <div class="glass" style="margin-bottom:20px"><h3>👥 Tài khoản khách hàng</h3><div class="tw"><table id="aUsers"></table></div></div>
+  <div class="glass" style="margin-bottom:20px"><h3>↩ Yêu cầu trả hàng</h3><div class="tw"><table id="aRet"></table></div></div>
+  <div class="glass" style="margin-bottom:20px"><h3 style="margin-bottom:12px">💳 Thanh toán chuyển khoản</h3><div class="two"><div>
+    <p class="stock" style="margin-bottom:8px">Tải ảnh mã QR ngân hàng/ví để khách quét khi chọn “Chuyển khoản”.</p>
+    <input type="file" id="qrFile" accept="image/*" onchange="upQR(this)">
+    <textarea id="bankInfo" rows="3" placeholder="Thông tin tài khoản (VD: Vietcombank - 0123456789 - NGUYEN VAN A)" onchange="db.bank=this.value.trim();save();renderQR()"></textarea>
+    <button class="btn ghost sm" onclick="db.qr='';save();renderQR();toast('Đã xóa mã QR')">Xóa mã QR</button>
+  </div><div id="qrPrev" class="qrbox"></div></div></div>
+  <div class="glass"><h3>Danh sách lead</h3><div class="tw"><table id="aLead"></table></div></div>
+  <div class="glass" style="margin-top:20px;max-width:520px"><h3 style="margin-bottom:12px">🔑 Đổi mã PIN quản trị</h3>
+    <input id="pinOld" type="password" inputmode="numeric" placeholder="PIN hiện tại"><input id="pinNew" type="password" inputmode="numeric" placeholder="PIN mới (4–8 chữ số)"><input id="pinNew2" type="password" inputmode="numeric" placeholder="Nhập lại PIN mới">
+    <button class="btn" onclick="changePin()">Đổi mã PIN</button></div>
+</div></section>
+
+<footer>© 2026 OceanDream.vn · Hotline 0853 542 726 · Dữ liệu lưu trên trình duyệt này</footer>
+
+<aside class="drawer" id="drawer">
+  <div class="row"><h3>🛒 Giỏ hàng</h3><button class="btn ghost sm" onclick="toggleCart()">Đóng</button></div>
+  <div id="cartItems"></div>
+  <h3 style="margin:14px 0">Tổng: <span id="cartTotal" class="price">0đ</span></h3>
+  <input id="coName" placeholder="Họ và tên"><input id="coPhone" placeholder="Số điện thoại"><input id="coAddr" placeholder="Địa chỉ nhận hàng">
+  <h3 style="margin:6px 0">Hình thức thanh toán</h3>
+  <div class="pay" onchange="payChg()">
+    <label class="on"><input type="radio" name="pay" value="Thanh toán khi giao hàng" checked> 🚚 Thanh toán khi giao hàng (COD)</label>
+    <label><input type="radio" name="pay" value="Tiền mặt"> 💵 Tiền mặt (trả trực tiếp tại shop)</label>
+    <label><input type="radio" name="pay" value="Chuyển khoản"> 🏦 Chuyển khoản (quét mã QR)</label>
+  </div>
+  <div class="qrbox" id="qrBox" style="display:none"></div>
+  <button class="btn" onclick="checkout()" style="width:100%">Đặt hàng</button>
+</aside>
+<div class="modal" id="authModal" onclick="if(event.target===this)closeAuth()"><div class="glass mbox"><div class="row" style="margin:0 0 14px"><h3 id="authTitle"></h3><button class="btn ghost sm" onclick="closeAuth()">✕</button></div><div id="authBody"></div></div></div>
+<div class="lb" id="lb" onclick="this.classList.remove('open')"><img id="lbImg" alt=""></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s), fmt=n=>(+n||0).toLocaleString('vi-VN')+'đ';
+const defaults={
+ products:[
+  {id:1,name:'Ocean Wave',emoji:'🌊',desc:'Sóng biển chuyển động, 16 màu.',price:390000,cost:180000,stock:40,img:''},
+  {id:2,name:'Moon Jelly',emoji:'🪼',desc:'Sứa phát sáng, hẹn giờ & loa.',price:450000,cost:200000,stock:25,img:''},
+  {id:3,name:'Starry Shell',emoji:'🐚',desc:'Vỏ sò mini, pin 12 giờ.',price:320000,cost:140000,stock:60,img:''}],
+ orders:[],leads:[],
+ reviews:[{n:'Lan Anh',s:5,t:'Con mình ngủ ngon hẳn, ánh sáng rất dịu!'},{n:'Minh Tuấn',s:5,t:'Thiết kế đẹp, giao nhanh, đáng tiền.'},{n:'Hà My',s:4,t:'Pin trâu, màu sắc đẹp, mong có thêm mẫu.'}]};
+let db; try{db=JSON.parse(localStorage.getItem('oceandream'))}catch(e){}
+db=db||structuredClone(defaults);
+db.pin=db.pin||'1234';db.returns=db.returns||[];db.users=db.users||[];db.me=db.me||'';db.qr=db.qr||'';db.bank=db.bank||'';
+let cart={};
+const PLATS=['Website OceanDream','Bán trực tiếp','Shopee','Lazada','TikTok Shop','Tiki','Facebook / Zalo','Khác'];
+const platOf=o=>o.plat||(o.addr==='Bán trực tiếp'?'Bán trực tiếp':'Website OceanDream');
+const gone=s=>s==='Đã hủy'||s==='Đã trả hàng';
+const PAYS=['Thanh toán khi giao hàng','Tiền mặt','Chuyển khoản'];
+const payOf=o=>o.pay||'Thanh toán khi giao hàng';
+$('#soPay').innerHTML=PAYS.map(x=>`<option>${x}</option>`).join('');
+const retOf=o=>db.returns.find(r=>r.code===o.code);
+const normPhone=s=>String(s||'').replace(/[\s.\-]/g,'').replace(/^\+84/,'0');
+const me=()=>db.users.find(u=>u.id===db.me);
+const normCode=s=>String(s||'').toUpperCase().replace(/\s/g,'');
+$('#soPlat').innerHTML=PLATS.map(x=>`<option>${x}</option>`).join('');
+$('#soPlat').value='Shopee';
+const save=()=>{try{localStorage.setItem('oceandream',JSON.stringify(db))}catch(e){toast('Không lưu được (ảnh quá lớn?)')}};
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2600)}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function renderProducts(){
+ $('#products').innerHTML=db.products.map(p=>`<div class="glass">
+  <div class="pimg" style="${p.img?`background-image:url('${p.img}')`:'background:linear-gradient(135deg,#1c3f8f,#4fd1c5aa)'}">${p.img?'':p.emoji||'💡'}</div>
+  <h3>${esc(p.name)}</h3><p>${esc(p.desc||'')}</p>
+  <div class="row"><span class="price">${fmt(p.price)}</span><span class="stock">${p.stock>0?'Còn '+p.stock:'Hết hàng'}</span></div>
+  <div class="row"><button class="btn sm" ${p.stock>0?'':'disabled'} onclick="addCart(${p.id})">Thêm vào giỏ</button></div></div>`).join('')}
+function addCart(id){const p=db.products.find(x=>x.id==id);if((cart[id]||0)>=p.stock)return toast('Đã đạt số lượng tồn kho');cart[id]=(cart[id]||0)+1;renderCart();toast('Đã thêm '+p.name)}
+function chg(id,d){const p=db.products.find(x=>x.id==id);cart[id]=Math.max(0,Math.min(p.stock,(cart[id]||0)+d));if(!cart[id])delete cart[id];renderCart()}
+function renderCart(){
+ const ids=Object.keys(cart);let tot=0,n=0;
+ $('#cartItems').innerHTML=ids.length?ids.map(id=>{const p=db.products.find(x=>x.id==id);tot+=p.price*cart[id];n+=cart[id];
+  return `<div class="ci"><span>${esc(p.name)}<br><small>${fmt(p.price)}</small></span><span class="qty"><button onclick="chg(${id},-1)">−</button> ${cart[id]} <button onclick="chg(${id},1)">+</button></span></div>`}).join(''):'<p class="stock" style="margin:14px 0">Giỏ hàng trống</p>';
+ $('#cartTotal').textContent=fmt(tot);$('#cartCount').textContent=n}
+function toggleCart(){$('#drawer').classList.toggle('open')}
+$('#cartBtn').onclick=toggleCart;
+
+function checkout(){
+ const name=$('#coName').value.trim(),phone=$('#coPhone').value.trim(),addr=$('#coAddr').value.trim();
+ if(!Object.keys(cart).length)return toast('Giỏ hàng đang trống');
+ if(!name||!/^[0-9+ ]{9,12}$/.test(phone)||!addr)return toast('Vui lòng nhập đủ tên, SĐT hợp lệ, địa chỉ');
+ const pay=document.querySelector('input[name=pay]:checked').value;
+ const items=Object.keys(cart).map(id=>{const p=db.products.find(x=>x.id==id);p.stock-=cart[id];return{id:p.id,name:p.name,qty:cart[id],price:p.price,cost:p.cost}});
+ const o={code:'OD-'+Math.floor(100000+Math.random()*900000),name,phone,addr,items,total:items.reduce((s,i)=>s+i.price*i.qty,0),status:'Mới',pay,uid:(me()||{}).id||'',plat:'Website OceanDream',platCode:'',date:new Date().toLocaleString('vi-VN')};
+ db.orders.unshift(o);save();cart={};renderCart();renderProducts();renderAdmin();toggleCart();
+ ['#coName','#coPhone','#coAddr'].forEach(s=>$(s).value='');{const u=me();if(u){u.addr=addr;save()}}fillCo();
+ document.querySelector('input[name=pay]').checked=true;payChg();
+ alert('Đặt hàng thành công!\nMã đơn của bạn: '+o.code+'\nThanh toán: '+pay+(pay==='Chuyển khoản'?'\nVui lòng chuyển '+fmt(o.total)+' theo mã QR, nội dung: '+phone:pay==='Thanh toán khi giao hàng'?'\nBạn trả '+fmt(o.total)+' cho nhân viên giao hàng khi nhận hàng.':'')+'\nDùng mã đơn hoặc SĐT để tra cứu.')}
+function payChg(){const t=document.querySelector('input[name=pay]:checked').value;$('#qrBox').style.display=t==='Chuyển khoản'?'block':'none';document.querySelectorAll('.pay label').forEach(l=>l.classList.toggle('on',l.querySelector('input').checked))}
+function renderQR(){const h=(db.qr?`<img src="${db.qr}" alt="Mã QR chuyển khoản">`:'📷 Chưa có mã QR – vui lòng liên hệ shop')+(db.bank?`<div>${esc(db.bank).replace(/\n/g,'<br>')}</div>`:'')+'<div style="margin-top:6px">Nội dung CK: SĐT đặt hàng</div>';$('#qrBox').innerHTML=h;$('#qrPrev').innerHTML=h}
+async function upQR(el){const f=el.files[0];if(!f)return;db.qr=await readImg(f,700,.92);save();renderQR();el.value='';toast('Đã lưu mã QR')}
+
+function lookup(){
+ const q=$('#lookQ').value.trim().toUpperCase().replace(/\s/g,''),r=$('#lookRes');
+ const f=q?db.orders.filter(o=>o.code===q||normCode(o.platCode)===q||(o.phone&&o.phone.replace(/\s/g,'')===q)):[];
+ r.innerHTML=f.length?f.map(o=>`<div class="rv"><b>${o.code}</b> · <span class="price" style="font-size:1rem">${o.status}</span><br><small>${o.date} · ${esc(platOf(o))}${o.platCode?' · Mã sàn: '+esc(o.platCode):''}</small><br>${o.items.map(i=>esc(i.name)+' ×'+i.qty).join(', ')}<br><b>${fmt(o.total)}</b> · <small>Thanh toán: ${esc(payOf(o))}</small>${retOf(o)?`<br><small>↩ Trả hàng: <b>${esc(retOf(o).status)}</b> · ${esc(retOf(o).reason)}</small>`:''}</div>`).join(''):'<p class="stock">Không tìm thấy đơn hàng phù hợp.</p>'}
+
+function renderReviews(){
+ const a=db.reviews,avg=a.length?(a.reduce((s,r)=>s+r.s,0)/a.length).toFixed(1):'–';
+ $('#reviews').innerHTML=`<h3 style="margin-bottom:12px">⭐ ${avg}/5 · ${a.length} đánh giá</h3>`+a.map(r=>`<div class="rv"><span class="stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</span> <b>${esc(r.n)}</b><p>${esc(r.t)}</p>${(r.imgs||[]).length?`<div class="thumbs">${r.imgs.map(u=>`<img src="${u}" alt="Ảnh khách đăng" onclick="zoom(this.src)">`).join('')}</div>`:''}</div>`).join('')}
+function zoom(u){$('#lbImg').src=u;$('#lb').classList.add('open')}
+let rvImgs=[];
+async function prevRv(el){if(el.files.length>3)toast('Chỉ lấy tối đa 3 ảnh');rvImgs=(await Promise.all([...el.files].slice(0,3).map(f=>readImg(f,500,.7)))).filter(Boolean);$('#rvPrev').innerHTML=rvImgs.map(u=>`<img src="${u}" alt="">`).join('')}
+function addReview(){const n=$('#rvName').value.trim(),t=$('#rvText').value.trim();if(!n||!t)return toast('Nhập tên và nội dung đánh giá');
+ db.reviews.unshift({n,t,s:+$('#rvStar').value,imgs:rvImgs});save();renderReviews();$('#rvName').value=$('#rvText').value='';rvImgs=[];$('#rvFile').value='';$('#rvPrev').innerHTML='';toast('Cảm ơn bạn đã đánh giá!')}
+function requestReturn(){
+ const code=normCode($('#rtCode').value),ph=$('#rtPhone').value.replace(/\s/g,''),reason=$('#rtReason').value,note=$('#rtNote').value.trim();
+ const o=code&&ph?db.orders.find(x=>x.code===code&&(x.phone||'').replace(/\s/g,'')===ph):null;
+ if(!o)return toast('Không tìm thấy đơn khớp mã đơn và SĐT');
+ if(gone(o.status))return toast('Đơn này đã hủy hoặc đã trả hàng');
+ if(db.returns.some(r=>r.code===o.code&&r.status!=='Từ chối'))return toast('Đơn này đã có yêu cầu trả hàng');
+ if(!reason)return toast('Vui lòng chọn lý do trả hàng');
+ if(reason==='Khác'&&!note)return toast('Vui lòng mô tả lý do');
+ db.returns.unshift({code:o.code,name:o.name,phone:o.phone,reason,note,status:'Chờ duyệt',date:new Date().toLocaleString('vi-VN')});
+ save();renderAdmin();['#rtCode','#rtPhone','#rtReason','#rtNote'].forEach(s=>$(s).value='');toast('Đã gửi yêu cầu trả hàng. Shop sẽ liên hệ bạn!')}
+function setRet(i,st){const r=db.returns[i],was=r.status,k=db.orders.findIndex(o=>o.code===r.code);r.status=st;
+ if(k>=0){const o=db.orders[k];if(st==='Đã duyệt'&&o.status!=='Đã trả hàng')setSt(k,'Đã trả hàng');else if(was==='Đã duyệt'&&st!=='Đã duyệt'&&o.status==='Đã trả hàng')setSt(k,'Hoàn thành')}
+ save();renderAdmin();toast('Đã cập nhật yêu cầu trả hàng')}
+function addLead(){const n=$('#ldName').value.trim(),c=$('#ldContact').value.trim();if(!n||c.length<6)return toast('Vui lòng nhập tên và liên hệ hợp lệ');
+ db.leads.unshift({n,c,d:new Date().toLocaleString('vi-VN')});save();renderAdmin();$('#ldName').value=$('#ldContact').value='';toast('Đã nhận! Mã ưu đãi: OCEAN10')}
+
+/* Tài khoản khách hàng (demo – lưu trên trình duyệt này, mật khẩu được băm PBKDF2 + salt) */
+let fails=0,lockUntil=0;
+const enc=new TextEncoder(),hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+const newSalt=()=>window.crypto&&crypto.getRandomValues?hex(crypto.getRandomValues(new Uint8Array(16))):Math.random().toString(36).slice(2)+Date.now();
+async function hashPw(pw,salt){
+ if(window.crypto&&crypto.subtle){const k=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveBits']);
+  return hex(await crypto.subtle.deriveBits({name:'PBKDF2',salt:enc.encode(salt),iterations:100000,hash:'SHA-256'},k,256))}
+ let h=5381;for(const c of salt+pw)h=((h<<5)+h+c.charCodeAt(0))|0;return 'x'+h}
+const myOrders=u=>db.orders.filter(o=>o.uid===u.id||(o.phone&&normPhone(o.phone)===normPhone(u.phone)));
+function openAuth(m){m=me()?'acc':(m||'login');authView(m);$('#authModal').classList.add('open')}
+function closeAuth(){$('#authModal').classList.remove('open')}
+function authView(m){
+ const b=$('#authBody'),t=$('#authTitle');
+ if(m==='login'){t.textContent='Đăng nhập';
+  b.innerHTML=`<input id="lgId" placeholder="Số điện thoại hoặc email" autocomplete="username"><input id="lgPw" type="password" placeholder="Mật khẩu" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+  <button class="btn" style="width:100%" onclick="doLogin()">Đăng nhập</button>
+  <p class="stock" style="text-align:center;margin-top:12px">Chưa có tài khoản? <a href="#" style="color:var(--teal)" onclick="authView('reg');return false">Đăng ký ngay</a></p>`}
+ else if(m==='reg'){t.textContent='Đăng ký tài khoản';
+  b.innerHTML=`<input id="rgName" placeholder="Họ và tên *" autocomplete="name"><input id="rgPhone" placeholder="Số điện thoại *" inputmode="tel" autocomplete="tel"><input id="rgEmail" placeholder="Email (không bắt buộc)" autocomplete="email">
+  <input id="rgPw" type="password" placeholder="Mật khẩu (từ 6 ký tự) *" autocomplete="new-password"><input id="rgPw2" type="password" placeholder="Nhập lại mật khẩu *" autocomplete="new-password" onkeydown="if(event.key==='Enter')doReg()">
+  <button class="btn" style="width:100%" onclick="doReg()">Tạo tài khoản</button>
+  <p class="stock" style="text-align:center;margin-top:12px">Đã có tài khoản? <a href="#" style="color:var(--teal)" onclick="authView('login');return false">Đăng nhập</a></p>`}
+ else{const u=me(),mine=myOrders(u);t.textContent='Tài khoản của tôi';
+  b.innerHTML=`<p>👤 <b>${esc(u.name)}</b><br><small class="stock">${esc(u.phone)}${u.email?' · '+esc(u.email):''}</small></p>
+  <h4>📍 Địa chỉ nhận hàng mặc định</h4><input id="acAddr" value="${esc(u.addr||'')}" placeholder="Số nhà, đường, phường/xã, tỉnh/thành"><button class="btn sm" onclick="saveAddr()">Lưu địa chỉ</button>
+  <h4>🧾 Đơn hàng của bạn (${mine.length})</h4>`+(mine.map(o=>`<div class="rv"><b>${esc(o.code)}</b> · <span class="price" style="font-size:.95rem">${esc(o.status)}</span><br><small>${esc(o.date||'')} · ${esc(payOf(o))}</small><br>${o.items.map(i=>esc(i.name)+' ×'+i.qty).join(', ')}<br><b>${fmt(o.total)}</b>${!gone(o.status)&&!retOf(o)?` <button class="btn ghost sm" data-c="${esc(o.code)}" onclick="goReturn(this.dataset.c)">Trả hàng</button>`:''}${retOf(o)?`<br><small>↩ Trả hàng: ${esc(retOf(o).status)}</small>`:''}</div>`).join('')||'<p class="stock">Bạn chưa có đơn hàng nào.</p>')+
+  `<h4>🔑 Đổi mật khẩu</h4><input id="cpOld" type="password" placeholder="Mật khẩu hiện tại" autocomplete="current-password"><input id="cpNew" type="password" placeholder="Mật khẩu mới (từ 6 ký tự)" autocomplete="new-password"><button class="btn ghost sm" onclick="doChgPw()">Đổi mật khẩu</button>
+  <hr style="border:0;border-top:1px solid var(--bd);margin:18px 0"><button class="btn ghost" style="width:100%" onclick="logout()">Đăng xuất</button>`}}
+async function doReg(){
+ const name=$('#rgName').value.trim(),phone=normPhone($('#rgPhone').value),email=$('#rgEmail').value.trim().toLowerCase(),pw=$('#rgPw').value,pw2=$('#rgPw2').value;
+ if(name.length<2)return toast('Vui lòng nhập họ tên');
+ if(!/^0\d{8,10}$/.test(phone))return toast('Số điện thoại không hợp lệ');
+ if(email&&!/^\S+@\S+\.\S+$/.test(email))return toast('Email không hợp lệ');
+ if(pw.length<6)return toast('Mật khẩu tối thiểu 6 ký tự');
+ if(pw!==pw2)return toast('Hai lần nhập mật khẩu không khớp');
+ if(db.users.some(u=>normPhone(u.phone)===phone))return toast('Số điện thoại này đã được đăng ký');
+ if(email&&db.users.some(u=>u.email===email))return toast('Email này đã được đăng ký');
+ const salt=newSalt(),u={id:'U'+Date.now(),name,phone,email,addr:'',salt,hash:await hashPw(pw,salt),created:new Date().toLocaleString('vi-VN')};
+ db.users.push(u);db.me=u.id;save();renderUser();renderAdmin();closeAuth();toast('Đăng ký thành công! Xin chào '+name)}
+async function doLogin(){
+ if(Date.now()<lockUntil)return toast('Thử sai quá nhiều lần, vui lòng đợi '+Math.ceil((lockUntil-Date.now())/1000)+' giây');
+ const id=$('#lgId').value.trim().toLowerCase(),pw=$('#lgPw').value;if(!id||!pw)return toast('Nhập tài khoản và mật khẩu');
+ const u=db.users.find(x=>normPhone(x.phone)===normPhone(id)||(x.email&&x.email===id));
+ if(!u||await hashPw(pw,u.salt)!==u.hash){if(++fails>=5){lockUntil=Date.now()+30000;fails=0}return toast('Sai tài khoản hoặc mật khẩu')}
+ fails=0;db.me=u.id;save();renderUser();closeAuth();toast('Xin chào '+u.name)}
+function logout(){db.me='';save();['#coName','#coPhone','#coAddr','#rvName'].forEach(x=>$(x).value='');renderUser();closeAuth();toast('Đã đăng xuất')}
+function saveAddr(){const u=me();u.addr=$('#acAddr').value.trim();save();fillCo();toast('Đã lưu địa chỉ')}
+async function doChgPw(){const u=me(),o=$('#cpOld').value,n=$('#cpNew').value;
+ if(await hashPw(o,u.salt)!==u.hash)return toast('Mật khẩu hiện tại không đúng');
+ if(n.length<6)return toast('Mật khẩu mới tối thiểu 6 ký tự');
+ u.salt=newSalt();u.hash=await hashPw(n,u.salt);save();$('#cpOld').value=$('#cpNew').value='';toast('Đã đổi mật khẩu')}
+function goReturn(code){const o=db.orders.find(x=>x.code===code),u=me();if(!o)return;$('#rtCode').value=code;$('#rtPhone').value=o.phone||(u&&u.phone)||'';closeAuth();$('#trahang').scrollIntoView()}
+function fillCo(){const u=me();if(!u)return;if(!$('#coName').value)$('#coName').value=u.name;if(!$('#coPhone').value)$('#coPhone').value=u.phone;if(!$('#coAddr').value&&u.addr)$('#coAddr').value=u.addr}
+function renderUser(){const u=me();$('#userBtn').innerHTML='👤 <span class="hm">'+(u?esc(u.name.trim().split(/\s+/).pop()):'Đăng nhập')+'</span>';
+ if(u){fillCo();if(!$('#rvName').value)$('#rvName').value=u.name}}
+function resetUserPw(id){const u=db.users.find(x=>x.id===id);if(!u)return;const n=prompt('Mật khẩu mới cho '+u.name+' (từ 6 ký tự):');if(n===null)return;
+ if(n.length<6)return toast('Mật khẩu tối thiểu 6 ký tự');
+ newPw(u,n)}
+async function newPw(u,n){u.salt=newSalt();u.hash=await hashPw(n,u.salt);save();toast('Đã đặt lại mật khẩu cho '+u.name)}
+function delUser(id){const u=db.users.find(x=>x.id===id);if(!u||!confirm('Xóa tài khoản '+u.name+'? (đơn hàng cũ vẫn được giữ)'))return;
+ db.users=db.users.filter(x=>x.id!==id);if(db.me===id)db.me='';save();renderUser();renderAdmin()}
+
+/* Admin (PIN chỉ mang tính demo – chạy phía trình duyệt) */
+$('#adminBtn').onclick=()=>{const a=$('#admin');if(a.style.display==='block'){a.style.display='none';return}
+ if(prompt('Nhập mã PIN quản trị:')===db.pin){a.style.display='block';renderAdmin();a.scrollIntoView()}else toast('Sai mã PIN')};
+function renderAdmin(){
+ const ok=db.orders.filter(o=>!gone(o.status));
+ const rev=ok.reduce((s,o)=>s+o.total,0),cost=ok.reduce((s,o)=>s+o.items.reduce((a,i)=>a+i.cost*i.qty,0),0);
+ const inv=db.products.reduce((s,p)=>s+p.stock*p.cost,0);
+ $('#kpi').innerHTML=[['Doanh thu',fmt(rev)],['Giá vốn',fmt(cost)],['Lợi nhuận',fmt(rev-cost)],['Biên LN',rev?Math.round((rev-cost)/rev*100)+'%':'0%'],['Đơn hàng',ok.length],['Giá trị tồn kho',fmt(inv)],['Lead',db.leads.length],['Tài khoản',db.users.length]].map(k=>`<div class="glass"><small>${k[0]}</small><b>${k[1]}</b></div>`).join('');
+ $('#aProd').innerHTML='<tr><th>Ảnh</th><th>Tên</th><th>Mô tả</th><th>Giá bán</th><th>Giá nhập</th><th>Số lượng</th><th>Đổi ảnh</th><th></th></tr>'+db.products.map(p=>`<tr>
+  <td><div style="width:48px;height:48px;border-radius:10px;background:${p.img?`url('${p.img}') center/cover`:'#1c3f8f'};display:grid;place-items:center">${p.img?'':p.emoji||'💡'}</div></td>
+  <td><input value="${esc(p.name)}" onchange="upd(${p.id},'name',this.value)"></td>
+  <td><input value="${esc(p.desc||'')}" onchange="upd(${p.id},'desc',this.value)"></td>
+  <td><input type="number" value="${p.price}" onchange="upd(${p.id},'price',+this.value)"></td>
+  <td><input type="number" value="${p.cost}" onchange="upd(${p.id},'cost',+this.value)"></td>
+  <td><input type="number" value="${p.stock}" onchange="upd(${p.id},'stock',+this.value)"></td>
+  <td><input type="file" accept="image/*" onchange="upImg(${p.id},this)">${p.img?`<button class="btn ghost sm" onclick="upd(${p.id},'img','')">Xóa ảnh</button>`:''}</td>
+  <td><button class="btn ghost sm" onclick="delProd(${p.id})">Xóa</button></td></tr>`).join('');
+ $('#aOrd').innerHTML='<tr><th>Mã đơn</th><th>Sàn</th><th>Mã đơn sàn</th><th>Ngày</th><th>Khách</th><th>SĐT</th><th>Sản phẩm</th><th>Tổng</th><th>Thanh toán</th><th>Trạng thái</th></tr>'+(db.orders.map((o,i)=>`<tr><td>${esc(o.code)}</td><td><select onchange="setOrd(${i},'plat',this.value)">${PLATS.map(x=>`<option ${x===platOf(o)?'selected':''}>${x}</option>`).join('')}</select></td><td><input value="${esc(o.platCode||'')}" placeholder="Mã sàn" onchange="setOrd(${i},'platCode',this.value.trim())"></td><td>${esc(o.date||'')}</td><td>${esc(o.name)}</td><td>${esc(o.phone)}</td><td>${o.items.map(x=>esc(x.name)+'×'+x.qty).join(', ')}</td><td>${fmt(o.total)}</td><td><select onchange="setOrd(${i},'pay',this.value)">${PAYS.map(x=>`<option ${x===payOf(o)?'selected':''}>${x}</option>`).join('')}</select></td>
+  <td><select onchange="setSt(${i},this.value)">${['Mới','Đang giao','Hoàn thành','Đã hủy','Đã trả hàng'].map(s=>`<option ${s===o.status?'selected':''}>${s}</option>`).join('')}</select></td></tr>`).join('')||'<tr><td colspan=10>Chưa có đơn</td></tr>');
+ fillSold();
+ $('#aUsers').innerHTML='<tr><th>Họ tên</th><th>SĐT</th><th>Email</th><th>Ngày đăng ký</th><th>Số đơn</th><th></th></tr>'+(db.users.map(u=>`<tr><td>${esc(u.name)}</td><td>${esc(u.phone)}</td><td>${esc(u.email||'')}</td><td>${esc(u.created||'')}</td><td>${myOrders(u).length}</td><td><button class="btn ghost sm" data-id="${esc(u.id)}" onclick="resetUserPw(this.dataset.id)">Đặt lại MK</button> <button class="btn ghost sm" data-id="${esc(u.id)}" onclick="delUser(this.dataset.id)">Xóa</button></td></tr>`).join('')||'<tr><td colspan=6>Chưa có tài khoản</td></tr>');
+ $('#aRet').innerHTML='<tr><th>Mã đơn</th><th>Khách</th><th>SĐT</th><th>Lý do</th><th>Mô tả</th><th>Ngày</th><th>Trạng thái</th></tr>'+(db.returns.map((r,i)=>`<tr><td>${esc(r.code)}</td><td>${esc(r.name||'')}</td><td>${esc(r.phone||'')}</td><td>${esc(r.reason)}</td><td>${esc(r.note||'')}</td><td>${r.date}</td><td><select onchange="setRet(${i},this.value)">${['Chờ duyệt','Đã duyệt','Từ chối'].map(x=>`<option ${x===r.status?'selected':''}>${x}</option>`).join('')}</select></td></tr>`).join('')||'<tr><td colspan=7>Chưa có yêu cầu trả hàng</td></tr>');
+ $('#bankInfo').value=db.bank||'';renderQR();
+ $('#aLead').innerHTML='<tr><th>Tên</th><th>Liên hệ</th><th>Thời gian</th></tr>'+(db.leads.map(l=>`<tr><td>${esc(l.n)}</td><td>${esc(l.c)}</td><td>${l.d}</td></tr>`).join('')||'<tr><td colspan=3>Chưa có lead</td></tr>')}
+function setOrd(i,k,v){db.orders[i][k]=v;save();renderAdmin();toast('Đã cập nhật đơn')}
+function upd(id,k,v){db.products.find(p=>p.id==id)[k]=v;save();renderProducts();renderAdmin()}
+function setSt(i,s){const o=db.orders[i];if(!o.noStock&&gone(s)&&!gone(o.status))o.items.forEach(x=>{const p=db.products.find(p=>p.id==x.id);if(p)p.stock+=x.qty});
+ if(!o.noStock&&gone(o.status)&&!gone(s))o.items.forEach(x=>{const p=db.products.find(p=>p.id==x.id);if(p)p.stock-=x.qty});
+ o.status=s;save();renderProducts();renderAdmin()}
+function delProd(id){if(confirm('Xóa sản phẩm này?')){db.products=db.products.filter(p=>p.id!=id);save();renderProducts();renderAdmin()}}
+function readImg(f,max=600,q=.8){return new Promise(res=>{const img=new Image,r=new FileReader;r.onload=()=>{img.onload=()=>{const c=document.createElement('canvas'),k=Math.min(1,max/img.width);c.width=img.width*k;c.height=img.height*k;c.getContext('2d').drawImage(img,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',q))};img.onerror=()=>res('');img.src=r.result};r.readAsDataURL(f)})}
+let npImg='';
+function setPrev(s){const p=$('#npPrev');p.style.backgroundImage=s?`url('${s}')`:'';p.textContent=s?'':'🖼️ Xem trước ảnh'}
+async function prevNew(el){const f=el.files[0];if(!f)return;npImg=await readImg(f);setPrev(npImg)}
+function addProd(){const name=$('#npName').value.trim(),price=+$('#npPrice').value,sv=$('#npStock').value,stock=+sv;
+ if(!name||!(price>0)||sv===''||stock<0)return toast('Nhập tên, giá bán (>0) và số lượng');
+ db.products.push({id:Date.now(),name,emoji:'💡',desc:$('#npDesc').value.trim(),price,cost:+$('#npCost').value||0,stock,img:npImg});
+ save();npImg='';['#npName','#npDesc','#npPrice','#npCost','#npStock','#npUrl','#npFile'].forEach(s=>$(s).value='');setPrev('');renderProducts();renderAdmin();toast('Đã thêm sản phẩm')}
+function fillSold(){const sel=$('#soProd'),cur=sel.value;
+ sel.innerHTML=db.products.map(p=>`<option value="${p.id}">${esc(p.name)} (tồn ${p.stock})</option>`).join('');
+ if(cur&&db.products.some(p=>p.id==cur))sel.value=cur;
+ if(!$('#soPrice').value)soFill();
+ if(!$('#soDate').value)$('#soDate').value=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10)}
+function soFill(){const p=db.products.find(x=>x.id==$('#soProd').value);$('#soPrice').value=p?p.price:''}
+function addSold(){const p=db.products.find(x=>x.id==$('#soProd').value),qty=+$('#soQty').value,pv=$('#soPrice').value,price=+pv,ded=$('#soStock').checked;
+ if(!p)return toast('Chưa có sản phẩm để chọn');
+ if(!Number.isInteger(qty)||qty<1||pv===''||price<0)return toast('Nhập số lượng (số nguyên ≥ 1) và giá bán');
+ if(ded&&qty>p.stock)return toast('Số lượng vượt tồn kho (còn '+p.stock+')');
+ let code=normCode($('#soCode').value);
+ if(code&&db.orders.some(x=>x.code===code))return toast('Mã đơn '+code+' đã tồn tại');
+ const plat=$('#soPlat').value,platCode=$('#soPlatCode').value.trim();
+ if(platCode&&db.orders.some(x=>normCode(x.platCode)===normCode(platCode)&&platOf(x)===plat))return toast('Mã đơn '+plat+' này đã được nhập');
+ if(ded)p.stock-=qty;
+ const d=$('#soDate').value,dt=d?new Date(d+'T12:00:00').toLocaleDateString('vi-VN'):new Date().toLocaleString('vi-VN');
+ const o={code:code||'OD-'+Math.floor(100000+Math.random()*900000),plat,platCode,pay:$('#soPay').value,name:$('#soName').value.trim()||'Khách mua trực tiếp',phone:$('#soPhone').value.trim(),addr:plat==='Bán trực tiếp'?'Bán trực tiếp':'Bán qua '+plat,items:[{id:p.id,name:p.name,qty,price,cost:p.cost}],total:price*qty,status:'Hoàn thành',date:dt};
+ if(!ded)o.noStock=true;
+ db.orders.unshift(o);save();['#soCode','#soPlatCode','#soName','#soPhone','#soPrice'].forEach(s=>$(s).value='');$('#soQty').value=1;
+ renderProducts();renderAdmin();toast('Đã lưu đơn '+o.code)}
+function changePin(){const a=$('#pinOld').value,b=$('#pinNew').value,c=$('#pinNew2').value;
+ if(a!==db.pin)return toast('PIN hiện tại không đúng');
+ if(!/^\d{4,8}$/.test(b))return toast('PIN mới phải gồm 4–8 chữ số');
+ if(b!==c)return toast('Hai lần nhập PIN mới không khớp');
+ db.pin=b;save();['#pinOld','#pinNew','#pinNew2'].forEach(s=>$(s).value='');toast('Đã đổi mã PIN')}
+async function upImg(id,el){const f=el.files[0];if(!f)return;upd(id,'img',await readImg(f))}
+
+new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12}).observe&&
+(()=>{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))})();
+renderProducts();renderCart();renderReviews();renderQR();renderUser();
+</script>
+</body>
+</html>
